@@ -11,16 +11,31 @@ module.exports = appointmentMongo = {
                 e.id,
                 e.clientId,
                 e.scheduleId,
-                e.vehicle,
-                e.date
+                e.vehicleId,
+                new Date(e.date)
             )
         );
         return apps;
     },
-    addNewAppointment(appointment){
-        throw new Error('Method not implemented.');
+    async addNewAppointment(appointment){
+        //  POST Cita
+        const collection = mongo.getDb().collection('appointments');
+        const result = await collection.insert({
+            id: appointment.id,
+            clientId: appointment.clientId,
+            scheduleId: appointment.schedule.id,
+            vehicleId: appointment.id,
+            date: appointment.date.toString(),
+            isFree: false
+        });
+        return result;
     },
     cancelAppointmentById(id){
-        throw new Error('Method not implemented.');
+        //  DELETE Cita
+        const collection = mongo.getDb().collection('appointments');
+        const result = await collection.remove({
+            id: id
+        });
+        return result;
     }
 }

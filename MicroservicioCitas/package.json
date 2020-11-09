@@ -7,6 +7,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "kafkajs": "^1.14.0",
     "mongodb": "^3.6.3",
     "nodemailer": "^6.4.15"
   },
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "prestart": "npm run build",
-    "start": "node ./src/index.ts",
+    "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
   "keywords": [],

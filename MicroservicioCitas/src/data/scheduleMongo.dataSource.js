@@ -13,8 +13,9 @@ module.exports = scheduleMongo = {
                 e.mechacnicId,
                 e.serviceCenterId,
                 e.kindService,
-                e.startingDate,
-                e.endingDate
+                new Date(e.startingDate),
+                new Date(e.endingDate),
+                e.isFree
             )
         );
         return apps;
